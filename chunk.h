@@ -16,15 +16,19 @@ enum class OpCode : uint8_t {
   OP_GREATER,
   OP_PRINT,
   OP_RETURN,
-  // NEW: Variable Commands
   OP_DEFINE_GLOBAL,
-  OP_GET_GLOBAL
+  OP_GET_GLOBAL,
+
+  // NEW: Control Flow Commands
+  OP_JUMP_IF_FALSE,  // Skip forward if the condition is false
+  OP_JUMP,           // Jump (used to loop back or skip the 'else' block)
+  OP_LOOP
 };
 
 struct Chunk {
   std::vector<uint8_t> code;
   std::vector<double> constants;
-  std::vector<std::string> stringConstants;  // NEW: Vault for variable names
+  std::vector<std::string> stringConstants;
 
   void write(uint8_t byte) { code.push_back(byte); }
 
@@ -33,7 +37,6 @@ struct Chunk {
     return constants.size() - 1;
   }
 
-  // NEW: Save string and get its index
   int addStringConstant(const std::string& str) {
     stringConstants.push_back(str);
     return stringConstants.size() - 1;

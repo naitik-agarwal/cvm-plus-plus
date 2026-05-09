@@ -66,4 +66,35 @@ struct PrintStmt : public Stmt {
       : expression(std::move(expression)) {}
 };
 
+// Represents a block of code enclosed in { }
+struct BlockStmt : public Stmt {
+  std::vector<std::unique_ptr<Stmt>> statements;
+
+  BlockStmt(std::vector<std::unique_ptr<Stmt>> statements)
+      : statements(std::move(statements)) {}
+};
+
+// Represents an if-else statement
+struct IfStmt : public Stmt {
+  std::unique_ptr<Expr> condition;
+  std::unique_ptr<Stmt> thenBranch;
+  std::unique_ptr<Stmt>
+      elseBranch;  // This can be nullptr if there is no 'else'
+
+  IfStmt(std::unique_ptr<Expr> condition, std::unique_ptr<Stmt> thenBranch,
+         std::unique_ptr<Stmt> elseBranch)
+      : condition(std::move(condition)),
+        thenBranch(std::move(thenBranch)),
+        elseBranch(std::move(elseBranch)) {}
+};
+
+// Represents a while loop
+struct WhileStmt : public Stmt {
+  std::unique_ptr<Expr> condition;
+  std::unique_ptr<Stmt> body;
+
+  WhileStmt(std::unique_ptr<Expr> condition, std::unique_ptr<Stmt> body)
+      : condition(std::move(condition)), body(std::move(body)) {}
+};
+
 #endif

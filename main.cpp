@@ -8,22 +8,30 @@
 #include "vm.h"
 
 int main() {
-  // A script to test our entire pipeline!
-  // It should calculate 2 + 12, print 14, then check if 14 > 10 and print 1
-  // (true)
-  std::string sourceCode =
-      "let score = 2 + 3 * 4; print score; print score > 10;";
+  // A script that tests if, blocks, and a while loop countdown!
+  std::string sourceCode = R"(
+        let countdown = 3;
+        
+        if (countdown > 0) {
+            print 999;
+        } else {
+            print 0;
+        }
+
+        while (countdown > 0) {
+            print countdown;
+            let countdown = countdown - 1;
+        }
+    )";
 
   std::cout << "--- CVM++ Execution Engine --- \n";
 
-  // 1. Front-End: Read text and build the Tree
   Lexer lexer(sourceCode);
   std::vector<Token> tokens = lexer.scanTokens();
 
   Parser parser(tokens);
   std::vector<std::unique_ptr<Stmt>> statements = parser.parse();
 
-  // 2. Back-End: Flatten the Tree and run it!
   Compiler compiler;
   Chunk chunk = compiler.compile(statements);
 

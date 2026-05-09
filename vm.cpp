@@ -100,6 +100,24 @@ void VM::run() {
       case OpCode::OP_RETURN: {
         return;  // End the program
       }
+      case OpCode::OP_JUMP_IF_FALSE: {
+        uint8_t offset = chunk->code[ip++];  // Read the jump distance
+        // If the top of the stack is 0 (false), fast-forward the ip!
+        if (stack.back() == 0.0) {
+          ip += offset;
+        }
+        break;
+      }
+      case OpCode::OP_JUMP: {
+        uint8_t offset = chunk->code[ip++];  // Read the jump distance
+        ip += offset;                        // Blindly fast-forward
+        break;
+      }
+      case OpCode::OP_LOOP: {
+        uint8_t offset = chunk->code[ip++];  // Read the loop distance
+        ip -= offset;                        // Jump backwards!
+        break;
+      }
     }
   }
 }
