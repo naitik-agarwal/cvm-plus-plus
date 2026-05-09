@@ -5,5 +5,14 @@ project(CVM_Plus_Plus)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# ADDED parser.cpp HERE
-add_executable(cvm main.cpp lexer.cpp parser.cpp compiler.cpp vm.cpp)
+# Tell the compiler where to find all our .h files
+include_directories(include)
+
+# Tell CMake where the .cpp files live now
+add_executable(cvm 
+    src/main.cpp 
+    src/lexer.cpp 
+    src/parser.cpp 
+    src/compiler.cpp 
+    src/vm.cpp
+)
