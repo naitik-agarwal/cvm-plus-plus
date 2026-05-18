@@ -85,14 +85,14 @@ The execution engine maintains an Instruction Pointer (`ip`) and a value stack (
 
 ## Language Features
 
-| Feature | Details |
-|---|---|
-| Data Types | Integer, Boolean |
-| Arithmetic | `+`, `-`, `*`, `/` |
-| Comparisons | `==`, `<`, `>` |
-| Variables | Dynamic, stored in a hash map (`std::unordered_map`) |
-| Control Flow | `if` / `else`, `while` loops |
-| I/O | `print` keyword, `input` keyword |
+| Feature             | Details                                                               |
+| ------------------- | --------------------------------------------------------------------- |
+| Data Types          | Integer, Boolean                                                      |
+| Arithmetic          | `+`, `-`, `*`, `/`                                                    |
+| Comparisons         | `==`, `<`, `>`                                                        |
+| Variables           | Dynamic, stored in a hash map (`std::unordered_map`)                  |
+| Control Flow        | `if` / `else`, `while` loops                                          |
+| I/O                 | `print` keyword, `input` keyword                                      |
 | Turing Completeness | Arbitrary looping and conditional branching via bytecode jump offsets |
 
 ---
@@ -271,22 +271,22 @@ BinaryExpr (+)
 
 ## Instruction Set Architecture
 
-| OpCode | Description |
-|---|---|
-| `OP_CONSTANT` | Push a constant value onto the stack |
-| `OP_ADD` | Pop two values, push their sum |
-| `OP_SUBTRACT` | Pop two values, push their difference |
-| `OP_MULTIPLY` | Pop two values, push their product |
-| `OP_DIVIDE` | Pop two values, push their quotient |
-| `OP_EQUAL` | Pop two values, push boolean equality result |
-| `OP_LESS` | Pop two values, push boolean less-than result |
-| `OP_GREATER` | Pop two values, push boolean greater-than result |
-| `OP_SET_VAR` | Pop value and store in variable map by name |
-| `OP_GET_VAR` | Push named variable's value onto the stack |
-| `OP_JUMP_IF_FALSE` | If top of stack is false, advance ip by offset |
-| `OP_JUMP` | Unconditional advance of ip by offset |
-| `OP_PRINT` | Pop and print the top of stack |
-| `OP_POP` | Discard the top of stack |
+| OpCode             | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| `OP_CONSTANT`      | Push a constant value onto the stack             |
+| `OP_ADD`           | Pop two values, push their sum                   |
+| `OP_SUBTRACT`      | Pop two values, push their difference            |
+| `OP_MULTIPLY`      | Pop two values, push their product               |
+| `OP_DIVIDE`        | Pop two values, push their quotient              |
+| `OP_EQUAL`         | Pop two values, push boolean equality result     |
+| `OP_LESS`          | Pop two values, push boolean less-than result    |
+| `OP_GREATER`       | Pop two values, push boolean greater-than result |
+| `OP_SET_VAR`       | Pop value and store in variable map by name      |
+| `OP_GET_VAR`       | Push named variable's value onto the stack       |
+| `OP_JUMP_IF_FALSE` | If top of stack is false, advance ip by offset   |
+| `OP_JUMP`          | Unconditional advance of ip by offset            |
+| `OP_PRINT`         | Pop and print the top of stack                   |
+| `OP_POP`           | Discard the top of stack                         |
 
 ---
 
@@ -297,5 +297,3 @@ BinaryExpr (+)
 - Understanding Stack-Based Virtual Machines
 
 ---
-
-*Mentor: Abhinav Rai*
