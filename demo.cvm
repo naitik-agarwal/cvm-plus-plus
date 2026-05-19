@@ -9,9 +9,9 @@
 let a = 20;
 let b = 7;
 
-print a + b;    // Expected: 27
-print a - b;    // Expected: 13
-print a * b;    // Expected: 140
+print a + b;  
+print a - b;    
+print a * b;    
 
 // --- PART 2: TRUTH MACHINE ---
 // If the input is 1, print 1. Otherwise print 0.

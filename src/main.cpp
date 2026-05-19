@@ -10,18 +10,33 @@
 int main() {
   // A script that tests if, blocks, and a while loop countdown!
   std::string sourceCode = R"(
-        let countdown = 3;
-        
-        if (countdown > 0) {
-            print 999;
-        } else {
-            print 0;
-        }
+        let a = 20;
+let b = 7;
 
-        while (countdown > 0) {
-            print countdown;
-            let countdown = countdown - 1;
-        }
+print a + b;  
+print a - b;    
+print a * b;   
+
+let input = 0;
+
+if (input == 1) {
+    print 1;
+} else {
+    print 0;
+}
+
+let countdown = 5;
+
+if (countdown > 0) {
+    print 999;
+} else {
+    print 0;
+}
+
+while (countdown > 0) {
+    print countdown;
+    let countdown = countdown - 1;
+}
     )";
 
   std::cout << "--- CVM++ Execution Engine --- \n";
