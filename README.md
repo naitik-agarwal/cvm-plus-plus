@@ -231,7 +231,7 @@ g++ -std=c++17 -O2 -Iinclude src/*.cpp -o cvm
 ./build/cvm path/to/script.cvm
 ```
 
-### Interactive REPL
+###  Interactive REPL
 
 ```bash
 ./build/cvm
