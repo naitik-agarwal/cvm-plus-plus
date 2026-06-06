@@ -63,8 +63,7 @@ void Compiler::compileStmt(Stmt* stmt) {
       elseJumpOffset = chunk.code.size() - 1;
     }
 
-    // BACKPATCHING: Now we know exactly how big the 'then' block is. Go back
-    // and fill it in!
+    // BACKPATCHING: Now we know exactly how big the 'then' block is. Go back and fill it in
     chunk.code[thenJumpOffset] = chunk.code.size() - thenJumpOffset - 1;
 
     if (ifStmt->elseBranch != nullptr) {
